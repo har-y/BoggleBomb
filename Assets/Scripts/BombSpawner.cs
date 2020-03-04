@@ -7,8 +7,6 @@ public class BombSpawner : MonoBehaviour
     [SerializeField] private GameObject _bombPrefab;
     [SerializeField] private GameObject _bombPrefabContainer;
 
-    private GameObject _copyBomb;
-
     private float _positionValue = 2.65f;
 
     // Start is called before the first frame update
@@ -32,9 +30,7 @@ public class BombSpawner : MonoBehaviour
 
     private void BombsSpawner()
     {
-        _copyBomb = Instantiate(_bombPrefab, new Vector2(Random.Range(-_positionValue, _positionValue), transform.position.y), Quaternion.identity);
+        GameObject _copyBomb = Instantiate(_bombPrefab, new Vector2(Random.Range(-_positionValue, _positionValue), transform.position.y), Quaternion.identity);
         _copyBomb.transform.parent = _bombPrefabContainer.transform;
-
-        Destroy(_copyBomb, 2f);
     }
 }
