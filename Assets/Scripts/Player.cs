@@ -21,8 +21,8 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
-        float _horizontal = Input.GetAxis("Horizontal");
         Vector2 currentPosition = transform.position;
+        float _horizontal = Input.GetAxis("Horizontal");
 
         if (_horizontal > 0)
         {
