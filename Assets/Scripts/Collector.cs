@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Collector : MonoBehaviour
 {
+    private int _score = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class Collector : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
+            _score++;
             Destroy(collision.gameObject);
         }
     }
