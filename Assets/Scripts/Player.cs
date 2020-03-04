@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private GameObject _button;
+
     private float _speed = 10f;
     private float _positionValue = 2.65f;
 
@@ -51,6 +54,13 @@ public class Player : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Time.timeScale = 0f;
+            _button.SetActive(true);
         }
+    }
+
+    public void PlayerDeath()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }
